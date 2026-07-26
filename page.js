@@ -1,241 +1,215 @@
+"use client";
+
+import { useState } from "react";
+
+const whatsapp = "8617621530596";
+const email = "yinghua20230402@gmail.com";
+
 const products = [
-  {
-    icon: "🌿",
-    name: "Mugwort Sachets",
-    text: "Aromatic herbal sachets for wardrobes, drawers, gift sets and wellness collections."
-  },
-  {
-    icon: "🛁",
-    name: "Herbal Foot Soak Packs",
-    text: "Convenient single-use packs developed for relaxation, gifting and private-label programs."
-  },
-  {
-    icon: "♨️",
-    name: "Herbal Heat Packs",
-    text: "Comfort-focused herbal packs with customizable fabric, filling, size and packaging."
-  },
-  {
-    icon: "🎁",
-    name: "Seasonal Gift Sets",
-    text: "Curated herbal gift concepts for holidays, spa programs, hotels and retail campaigns."
-  }
+  ["Mugwort Sachets", "Wardrobe, drawer, bedside and wellness gift applications."],
+  ["Herbal Aroma Sachets", "Custom herbal blends, scents, fabrics, shapes and sizes."],
+  ["Foot Soak Sachets", "Single-use herbal packs for spa, wellness and retail programs."],
+  ["Herbal Gift Sets", "Private-label combinations for holidays, hotels and brand campaigns."]
 ];
 
-const advantages = [
-  {
-    title: "Flexible OEM / ODM",
-    text: "Choose product format, scent profile, fabric, size, label and retail packaging."
-  },
-  {
-    title: "Buyer-Friendly MOQ",
-    text: "Start with samples and pilot orders before moving into larger production."
-  },
-  {
-    title: "Export-Oriented Support",
-    text: "Clear communication, quotation support and practical coordination for international buyers."
-  },
-  {
-    title: "Custom Product Development",
-    text: "We help turn a concept into a sellable herbal wellness product step by step."
-  }
+const options = [
+  "Herbal filling and aroma direction",
+  "Fabric, size, shape and stitching",
+  "Logo label and private-label branding",
+  "Individual bag, paper box or gift packaging",
+  "Sample development before bulk order",
+  "Factory sourcing and production coordination in China"
 ];
 
-function WhatsAppLink({ children, className = "" }) {
-  const message = encodeURIComponent(
-    "Hello HerbalBridge, I am interested in your mugwort products and OEM/ODM service."
-  );
-  return (
-    <a
-      className={className}
-      href={`https://wa.me/8617621530596?text=${message}`}
-      target="_blank"
-      rel="noreferrer"
-    >
-      {children}
-    </a>
-  );
+function waLink(text) {
+  return `https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`;
 }
 
 export default function Home() {
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    market: "",
+    product: "",
+    quantity: "",
+    message: ""
+  });
+
+  function update(e) {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  function sendInquiry(e) {
+    e.preventDefault();
+    const text = `Hello HerbalBridge,
+
+I would like to request a quotation.
+
+Name: ${form.name}
+Company: ${form.company}
+Target market: ${form.market}
+Product: ${form.product}
+Estimated quantity: ${form.quantity}
+Requirements: ${form.message}`;
+
+    window.open(waLink(text), "_blank", "noopener,noreferrer");
+  }
+
   return (
     <main>
-      <header className="siteHeader">
-        <a className="brand" href="#top" aria-label="HerbalBridge home">
-          <span className="brandMark">H</span>
-          <span>
-            <strong>HerbalBridge</strong>
-            <small>Natural Wellness Supply</small>
-          </span>
-        </a>
-
-        <nav aria-label="Main navigation">
-          <a href="#products">Products</a>
-          <a href="#oem">OEM / ODM</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <WhatsAppLink className="headerCta">WhatsApp Us</WhatsAppLink>
+      <header>
+        <div className="brand">
+          <span className="mark">H</span>
+          <span><strong>HerbalBridge</strong><small>Custom Herbal Sachet Supply</small></span>
+        </div>
+        <a className="topCta" href="#inquiry">Request a Quote</a>
       </header>
 
-      <section className="hero" id="top">
-        <div className="heroContent">
-          <p className="eyebrow">MUGWORT & HERBAL WELLNESS PRODUCTS</p>
-          <h1>Bring Traditional Herbal Inspiration to Your Market</h1>
-          <p className="heroText">
-            HerbalBridge helps wholesalers, wellness brands, spas and gift
-            retailers source adaptable mugwort products from China—with
-            practical OEM and ODM support.
+      <section className="hero">
+        <div className="heroCopy">
+          <p className="eyebrow">B2B SOURCING · PRIVATE LABEL · CUSTOM PACKAGING</p>
+          <h1>Custom Herbal Sachets for Your Brand and Market</h1>
+          <p className="lead">
+            We connect overseas buyers with suitable Chinese production partners
+            for herbal sachets, private-label development and customized packaging.
           </p>
-          <div className="heroActions">
-            <WhatsAppLink className="button primary">
-              Get a Quick Quote
-            </WhatsAppLink>
-            <a className="button secondary" href="#products">
-              Explore Products
+          <p className="positioning">
+            No confusing catalog. No hard sell. Tell us what you need, and we will
+            help organize the sourcing and sample-development process.
+          </p>
+          <div className="actions">
+            <a className="button primary" href="#inquiry">Send Your Requirements</a>
+            <a
+              className="button ghost"
+              href={waLink("Hello HerbalBridge, I am looking for custom herbal sachets.")}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ask on WhatsApp
             </a>
           </div>
-          <div className="heroNotes">
-            <span>✓ Sample support</span>
+          <div className="proof">
+            <span>✓ Private label</span>
             <span>✓ Custom packaging</span>
-            <span>✓ English communication</span>
+            <span>✓ Sample support</span>
           </div>
         </div>
 
-        <div className="heroVisual" aria-label="Decorative herbal product illustration">
-          <div className="sun" />
-          <div className="leaf leafOne">❧</div>
-          <div className="leaf leafTwo">❧</div>
-          <div className="productMockup">
-            <span className="mockupTop">HERBALBRIDGE</span>
-            <strong>MUGWORT</strong>
-            <em>Herbal Wellness Collection</em>
-            <div className="mockupLeaf">🌿</div>
+        <div className="heroArt">
+          <div className="circle"></div>
+          <div className="pouch mainPouch">
+            <small>YOUR BRAND</small>
+            <strong>HERBAL<br/>SACHET</strong>
+            <span>Custom Blend · Custom Pack</span>
+            <b>🌿</b>
           </div>
-          <div className="miniPack packOne">Foot Soak</div>
-          <div className="miniPack packTwo">Herbal Sachet</div>
+          <div className="pouch miniPouch">Mugwort</div>
+          <div className="tag">OEM / ODM</div>
         </div>
       </section>
 
-      <section className="trustStrip" aria-label="Buyer types">
+      <section className="strip">
+        <span>For Importers</span>
         <span>For Wellness Brands</span>
-        <span>For Wholesalers</span>
-        <span>For Spa & Gift Retail</span>
-        <span>For Private Label Projects</span>
+        <span>For Gift Retailers</span>
+        <span>For Spa & Hotel Buyers</span>
       </section>
 
-      <section className="section" id="products">
-        <div className="sectionHeading">
-          <p className="eyebrow">PRODUCT DIRECTIONS</p>
-          <h2>Start with a proven format. Make it your own.</h2>
-          <p>
-            Our first collection focuses on practical herbal products that are
-            easy to sample, customize and present to overseas buyers.
-          </p>
+      <section className="section">
+        <div className="heading">
+          <p className="eyebrow">PRODUCT FOCUS</p>
+          <h2>Start with the herbal sachet format that fits your channel</h2>
+          <p>Every project can be adjusted according to your market, positioning and order plan.</p>
         </div>
 
         <div className="productGrid">
-          {products.map((product) => (
-            <article className="productCard" key={product.name}>
-              <div className="productIcon">{product.icon}</div>
-              <h3>{product.name}</h3>
-              <p>{product.text}</p>
-              <a href="#contact">Ask about customization →</a>
+          {products.map(([title, text], i) => (
+            <article key={title}>
+              <span>0{i + 1}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+              <a href="#inquiry">Request details →</a>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="splitSection" id="oem">
-        <div className="splitVisual">
-          <div className="sampleCard">
-            <p>YOUR BRAND</p>
-            <strong>Custom Herbal Set</strong>
-            <span>Fabric · Formula · Label · Box</span>
-          </div>
-          <div className="sampleBadge">OEM / ODM</div>
-        </div>
-
-        <div className="splitContent">
-          <p className="eyebrow">CUSTOM DEVELOPMENT</p>
-          <h2>From a rough idea to a buyer-ready sample</h2>
-          <p>
-            Tell us your target market, product style and budget. We will help
-            organize the right questions and move the project toward a sample
-            efficiently.
-          </p>
-          <div className="steps">
-            <div><b>01</b><span><strong>Share your idea</strong>Product, market, size, packaging and target quantity.</span></div>
-            <div><b>02</b><span><strong>Confirm the direction</strong>We align materials, format and quotation assumptions.</span></div>
-            <div><b>03</b><span><strong>Develop samples</strong>Review the physical sample before mass production.</span></div>
-          </div>
-          <WhatsAppLink className="textLink">Discuss an OEM project →</WhatsAppLink>
-        </div>
-      </section>
-
-      <section className="section soft" id="about">
-        <div className="sectionHeading narrow">
-          <p className="eyebrow">WHY HERBALBRIDGE</p>
-          <h2>A practical bridge between Chinese herbal products and global buyers</h2>
-          <p>
-            We focus on clear communication, flexible development and products
-            that can be adapted to different retail and wholesale channels.
-          </p>
-        </div>
-
-        <div className="advantageGrid">
-          {advantages.map((item, index) => (
-            <article key={item.title}>
-              <span>0{index + 1}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="contactSection" id="contact">
+      <section className="custom">
         <div>
-          <p className="eyebrow light">LET'S TALK</p>
-          <h2>Looking for a mugwort product or private-label idea?</h2>
+          <p className="eyebrow pale">CUSTOMIZATION</p>
+          <h2>You bring the market idea. We help structure the supply solution.</h2>
           <p>
-            Send your product name, target market and estimated quantity. We
-            will reply with the next practical step.
+            HerbalBridge operates as a sourcing and project-coordination partner.
+            Production is arranged through suitable manufacturing partners in China
+            based on the product requirements.
           </p>
+          <a className="button lightButton" href="#inquiry">Discuss Your Product</a>
+        </div>
+        <ul>
+          {options.map(item => <li key={item}>✓ {item}</li>)}
+        </ul>
+      </section>
+
+      <section className="process section">
+        <div className="heading">
+          <p className="eyebrow">HOW IT WORKS</p>
+          <h2>A simple path from inquiry to sample</h2>
+        </div>
+        <div className="steps">
+          <div><b>1</b><h3>Send requirements</h3><p>Product type, market, quantity and packaging idea.</p></div>
+          <div><b>2</b><h3>Confirm direction</h3><p>We organize key specifications and quotation assumptions.</p></div>
+          <div><b>3</b><h3>Develop sample</h3><p>Review the sample and refine details before bulk production.</p></div>
+        </div>
+      </section>
+
+      <section className="inquiry" id="inquiry">
+        <div className="inquiryIntro">
+          <p className="eyebrow pale">GET A QUOTE</p>
+          <h2>Tell us what kind of herbal sachet you want to source</h2>
+          <p>
+            Complete the form and click the button. Your inquiry will open in
+            WhatsApp so you can send it directly.
+          </p>
+          <div className="direct">
+            <a href={`mailto:${email}`}>{email}</a>
+            <a href={waLink("Hello HerbalBridge, I would like to discuss a project.")} target="_blank" rel="noreferrer">
+              +86 176 2153 0596
+            </a>
+          </div>
         </div>
 
-        <div className="contactCard">
-          <WhatsAppLink className="contactButton">
-            <span>WhatsApp</span>
-            <strong>+86 176 2153 0596</strong>
-          </WhatsAppLink>
-          <a className="contactButton" href="mailto:yinghua20230402@gmail.com">
-            <span>Email</span>
-            <strong>yinghua20230402@gmail.com</strong>
-          </a>
-          <small>Typical inquiry details: product · market · quantity · packaging</small>
-        </div>
+        <form onSubmit={sendInquiry}>
+          <div className="two">
+            <label>Name<input required name="name" value={form.name} onChange={update} /></label>
+            <label>Company<input name="company" value={form.company} onChange={update} /></label>
+          </div>
+          <div className="two">
+            <label>Target market<input name="market" placeholder="e.g. Germany" value={form.market} onChange={update} /></label>
+            <label>Product needed<input required name="product" placeholder="e.g. mugwort sachet" value={form.product} onChange={update} /></label>
+          </div>
+          <label>Estimated quantity<input name="quantity" placeholder="e.g. 1,000 pcs" value={form.quantity} onChange={update} /></label>
+          <label>Requirements<textarea required name="message" rows="5" placeholder="Size, fabric, filling, logo, packaging..." value={form.message} onChange={update}></textarea></label>
+          <button type="submit">Send Inquiry via WhatsApp</button>
+          <small>By clicking, WhatsApp opens with your inquiry text ready to send.</small>
+        </form>
       </section>
 
       <footer>
-        <div className="brand footerBrand">
-          <span className="brandMark">H</span>
-          <span>
-            <strong>HerbalBridge</strong>
-            <small>Natural Wellness Supply</small>
-          </span>
+        <div className="brand">
+          <span className="mark gold">H</span>
+          <span><strong>HerbalBridge</strong><small>Custom Herbal Sachet Supply</small></span>
         </div>
-        <p>© {new Date().getFullYear()} HerbalBridge. All rights reserved.</p>
-        <div>
-          <a href="#products">Products</a>
-          <a href="#oem">OEM / ODM</a>
-          <a href="#contact">Contact</a>
-        </div>
+        <p>Private label · Custom packaging · China sourcing support</p>
       </footer>
 
-      <WhatsAppLink className="floatingWhatsApp" aria-label="Chat on WhatsApp">
-        <span>WhatsApp</span>
-      </WhatsAppLink>
+      <a
+        className="float"
+        href={waLink("Hello HerbalBridge, I would like to inquire about custom herbal sachets.")}
+        target="_blank"
+        rel="noreferrer"
+      >
+        WhatsApp Inquiry
+      </a>
     </main>
   );
 }

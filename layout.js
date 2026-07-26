@@ -1,23 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "HerbalBridge | Mugwort Products & OEM/ODM Supplier",
+  title: "Custom Herbal Sachets & Private Label Supply | HerbalBridge",
   description:
-    "Explore mugwort sachets, foot soak packs, herbal heat packs and custom OEM/ODM solutions for global wholesale buyers.",
-  keywords: [
-    "mugwort products",
-    "mugwort sachet",
-    "herbal foot soak",
-    "herbal heat pack",
-    "OEM herbal products",
-    "China supplier"
-  ],
-  openGraph: {
-    title: "HerbalBridge | Mugwort Products & OEM/ODM Supplier",
-    description:
-      "Traditional herbal inspiration, flexible product development, and practical support for global buyers.",
-    type: "website"
-  }
+    "Source custom herbal sachets from China with private label, custom filling, fabric and packaging support for wholesale buyers.",
 };
 
 export default function RootLayout({ children }) {

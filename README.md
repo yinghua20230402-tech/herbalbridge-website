@@ -1,16 +1,10 @@
-# HerbalBridge
+# HerbalBridge Landing Page v2
 
-A responsive English landing page for a China-based mugwort and herbal wellness product supplier.
+Single-page, conversion-focused B2B landing page for herbal sachet sourcing, private label and custom packaging.
 
-## Run locally
-
-```bash
+## Local use
 npm install
 npm run dev
-```
 
-Open http://localhost:3000
-
-## Deploy
-
-Import this repository into Vercel. Vercel will detect Next.js automatically.
+## Vercel
+Import the GitHub repository and deploy with the default Next.js settings.
