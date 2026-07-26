@@ -1,15 +1,11 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Custom Herbal Sachets & Private Label Supply | HerbalBridge",
-  description:
-    "Source custom herbal sachets from China with private label, custom filling, fabric and packaging support for wholesale buyers.",
+  title: "Custom Mugwort Foot Soak & Herbal Sachets | HerbalBridge",
+  description: "Private label mugwort foot soak bags and traditional herbal sachets with custom packaging and China sourcing support for global B2B buyers.",
+  keywords: ["mugwort foot soak supplier","custom herbal sachet","private label foot soak","OEM herbal sachet","China sourcing partner"]
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+  return <html lang="en"><body>{children}</body></html>;
 }

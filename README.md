@@ -1,10 +1,12 @@
-# HerbalBridge Landing Page v2
+# HerbalBridge V1.1
 
-Single-page, conversion-focused B2B landing page for herbal sachet sourcing, private label and custom packaging.
+A conversion-focused B2B landing page featuring:
 
-## Local use
-npm install
-npm run dev
+- Botanical Mugwort Foot Soak
+- Traditional Herbal Sachet
+- Private label and custom packaging
+- China manufacturing coordination
+- WhatsApp inquiry form
+- Mobile responsive design
 
-## Vercel
-Import the GitHub repository and deploy with the default Next.js settings.
+Upload the contents of this folder to GitHub. Vercel will detect Next.js automatically.
