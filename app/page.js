@@ -73,19 +73,9 @@ export default function Home() {
           <div className="proofRow"><span>Private Label</span><span>Custom Packaging</span><span>Flexible Projects</span></div>
         </div>
 
-        <div className="heroStage" aria-label="Botanical product presentation">
-          <div className="heroGlow"></div>
-          <div className="leaf leafOne"></div><div className="leaf leafTwo"></div><div className="leaf leafThree"></div>
-          <div className="mainPack">
-            <small>HERBALBRIDGE</small>
-            <b>BOTANICAL</b>
-            <strong>MUGWORT</strong>
-            <span>FOOT SOAK</span>
-            <i>艾</i>
-          </div>
-          <div className="sachetPack"><small>HERBALBRIDGE</small><strong>HERBAL<br/>SACHET</strong><span>东方草本</span></div>
-          <div className="sampleTag">SAMPLE<br/>READY</div>
-          <p className="stageCaption">Designed for your brand. Coordinated in China.</p>
+        <div className="heroStage heroPhoto" aria-label="Botanical wellness lifestyle scene">
+          <img src="/images/hero-lifestyle.jpg" alt="Premium botanical wellness products in a calm natural setting" />
+          <div className="photoBadge">OEM · PRIVATE LABEL</div>
         </div>
       </section>
 
@@ -99,13 +89,12 @@ export default function Home() {
         <div className="productGrid">
           {products.map((product) => (
             <article className={`productCard ${product.className}`} key={product.title}>
-              <div className="productVisual">
+              <div className="productVisual productPhoto">
                 <span className="productNumber">{product.number}</span>
-                {product.className === "mugwortCard" ? (
-                  <div className="miniPack"><small>HERBALBRIDGE</small><strong>Mugwort</strong><span>Foot Soak</span><i>艾</i></div>
-                ) : (
-                  <div className="miniSachet"><small>HERBALBRIDGE</small><strong>Herbal<br/>Sachet</strong><span>东方草本</span></div>
-                )}
+                <img
+                  src={product.className === "mugwortCard" ? "/images/foot-soak.jpg" : "/images/herbal-sachet.jpg"}
+                  alt={product.title}
+                />
               </div>
               <div className="productBody">
                 <p className="eyebrow">{product.eyebrow}</p>
