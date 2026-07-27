@@ -1,7 +1,15 @@
 {
-  "name": "herbalbridge-v1-1",
-  "version": "1.1.0",
+  "name": "herbalbridge-v1-2",
+  "version": "1.2.0",
   "private": true,
-  "scripts": {"dev":"next dev","build":"next build","start":"next start"},
-  "dependencies": {"next":"14.2.31","react":"18.3.1","react-dom":"18.3.1"}
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.31",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
 }

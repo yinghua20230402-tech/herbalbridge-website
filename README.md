@@ -1,12 +1,14 @@
-# HerbalBridge V1.1
+# HerbalBridge V1.2
 
-A conversion-focused B2B landing page featuring:
+High-impact B2B landing page for custom mugwort foot soak and traditional herbal sachets.
 
-- Botanical Mugwort Foot Soak
-- Traditional Herbal Sachet
-- Private label and custom packaging
-- China manufacturing coordination
-- WhatsApp inquiry form
-- Mobile responsive design
+## Deploy
 
-Upload the contents of this folder to GitHub. Vercel will detect Next.js automatically.
+Upload these files to the existing GitHub repository. Vercel will deploy automatically.
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
